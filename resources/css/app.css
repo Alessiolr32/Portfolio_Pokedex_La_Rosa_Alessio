@@ -1,0 +1,194 @@
+@import 'bootstrap';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fredoka', sans-serif;
+}
+
+body {
+    background-image: url("/public/upscalemedia-transformed.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pokemon-color {
+    background-color:#e01915;
+    color: white;
+} 
+
+.navbar-icon {
+    width: 150px;
+    height: 55px;
+    object-fit: cover;
+}
+
+.card-item:hover {
+    transform: scale(1.06);
+    transition: transform 0.4s ease-in-out;
+}
+
+.pokemon-color-btn {
+    background-color: #d3100c;
+    color: white;
+    border-radius: 10px;
+}
+
+.pokemon-color-btn:hover {
+    background-color: #ff0000 !important;
+    color: #ffffff;
+}
+
+.pokemon-img-detail {
+    max-width: 250px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.navbar {
+    background-image: url("/public/wp8813131.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+footer {
+    background-image: url("/public/wp8813131.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.pokemon-title {
+    background: linear-gradient(to bottom, #000000, #313131);
+    color: white;
+    display: inline-block;
+    width: 99.7%;
+    text-align: center;
+    font-size: 2.1rem;
+    cursor: pointer;
+}
+
+.card {
+    cursor: pointer;
+}
+
+.scroll-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    max-height: 250px;
+    overflow-y: auto;
+    padding-left: 0;
+    list-style: none;
+    justify-content: center;
+}
+
+.scroll-list li {
+    flex: 0 0 auto;
+    background: #eaeef1;
+    padding: 0.3rem 0.6rem;
+    margin: 0;
+}
+
+.navbar-text {
+    font-size: 1.05rem;
+}
+
+.border-thick {
+    border: 1.3px solid rgba(0, 0, 0, 0.538);
+}
+
+.badge-fire {
+    background-color: #fb6e10;
+    color: white;
+}
+
+.badge-water {
+    background-color: #2076E1;
+    color: white;
+}
+
+.badge-grass {
+    background-color: #2b8f12;
+    color: white;
+}
+
+.badge-electric {
+    background-color: #ffe600;
+    color: black;
+}
+
+.badge-psychic {
+    background-color: #DC3369;
+    color: white;
+}
+
+.badge-normal {
+    background-color: #747b74;
+    color: white;
+}
+
+.badge-ice {
+    background-color: #31CAF0;
+    color: black;
+}
+
+.badge-fighting {
+    background-color: #B05800;
+    color: white;
+}
+
+.badge-poison {
+    background-color: #8135BA;
+    color: white;
+}
+
+.badge-ground {
+    background-color: #793a0d;
+    color: rgb(255, 255, 255);
+}
+
+.badge-flying {
+    background-color: #84bff6;
+    color: black;
+}
+
+.badge-bug {
+    background-color: #899816;
+    color: white;
+}
+
+.badge-rock {
+    background-color: #9F996D;
+    color: white;
+}
+
+.badge-ghost {
+    background-color: #683969;
+    color: white;
+}
+
+.badge-dragon {
+    background-color: #404FCF;
+    color: white;
+}
+
+.badge-dark {
+    background-color: #3F3331;
+    color: white;
+}
+
+.badge-steel {
+    background-color: #5496AD;
+    color: black;
+}
+
+.badge-fairy {
+    background-color: #E562E4;
+    color: black;
+}
