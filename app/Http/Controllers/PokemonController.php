@@ -19,6 +19,8 @@ class PokemonController extends Controller
     public function show($id)
     {
         $pokemon = Http::get("https://pokeapi.co/api/v2/pokemon/{$id}")->json();
-        return view('pokemon.show', compact('pokemon'));
+        $previousPokemon = $id > 1 ? $id - 1 : null;
+        $nextPokemon = $id < 1025 ? $id + 1 : null;
+        return view('pokemon.show', compact('pokemon', 'previousPokemon', 'nextPokemon'));
     }
 }

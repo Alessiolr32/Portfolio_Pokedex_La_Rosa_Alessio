@@ -6,16 +6,8 @@
         
         <div class="card-body">
             <p class="mb-0 text-muted small">
-                @if ($index < 10)
-                #000{{ $index +1 }}
-                @elseif ($index < 100)
-                #00{{ $index +1 }}
-                @elseif ($index < 1000)
-                #0{{ $index +1 }}
-                @else 
-                #{{ $index +1 }}
-                @endif
-            </p>  
+                #{{ str_pad($index + 1, 4, '0', STR_PAD_LEFT) }}
+            </p>
             <h6 class="card-title fw-bold mb-0">{{ ucfirst($pokemon->name) }}</h6>
         </div>
     </div>

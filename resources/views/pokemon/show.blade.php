@@ -3,18 +3,25 @@
     
     <div>
         <h1 class="mb-5 text-center fw-bold">
-            <div class="pokemon-title text-white px-3 py-2 rounded-3">
+            <div class="pokemon-title text-white px-3 py-2 rounded-3 d-flex justify-content-center align-items-center gap-3">
+                
+                @if ($previousPokemon)
+                <a href="{{ route('pokemon.show', $previousPokemon) }}" class="btn btn-outline-light rounded-circle direction-arrow" title="Pokémon precedente">
+                    <
+                </a>   
+                @endif
+                
                 <p class="mb-0">
-                    @if ($pokemon['id'] < 10)
-                    #000{{ $pokemon['id'] }} {{ ucfirst($pokemon['name']) }}
-                    @elseif ($pokemon['id'] < 100)
-                    #00{{ $pokemon['id'] }} {{ ucfirst($pokemon['name']) }}
-                    @elseif ($pokemon['id'] < 1000)
-                    #0{{ $pokemon['id'] }} {{ ucfirst($pokemon['name']) }}
-                    @else 
-                    #{{ $pokemon['id'] }} {{ ucfirst($pokemon['name']) }}
-                    @endif
-                </p>  
+                    #{{ str_pad($pokemon['id'], 4, '0', STR_PAD_LEFT) }}
+                    {{ ucfirst($pokemon['name']) }}
+                </p>
+                
+                @if ($nextPokemon)
+                <a href="{{ route('pokemon.show', $nextPokemon) }}" class="btn btn-outline-light rounded-circle direction-arrow" title="Pokémon precedente">
+                    >
+                </a> 
+                @endif
+                
             </div>
         </h1>
     </div>
@@ -27,15 +34,7 @@
         <div class="card-body text-center">
             <section>
                 <p class="mb-1 text-muted small">
-                    @if ($pokemon['id'] < 10)
-                    #000{{ $pokemon['id'] }}
-                    @elseif ($pokemon['id'] < 100)
-                    #00{{ $pokemon['id'] }}
-                    @elseif ($pokemon['id'] < 1000)
-                    #0{{ $pokemon['id'] }}
-                    @else 
-                    #{{ $pokemon['id'] }}
-                    @endif
+                    #{{ str_pad($pokemon['id'], 4, '0', STR_PAD_LEFT) }}
                 </p>  
                 <h5 class="card-title fw-bold">{{ ucfirst($pokemon['name']) }}</h5>
             </section>
@@ -86,37 +85,37 @@
                 <audio controls>
                     <source src="{{ $pokemon['cries']['latest'] }}" type="audio/ogg">
                     </audio>
-            </section>
+                </section>
                 
-            <section>
-                <div class="d-flex justify-content-center flex-wrap align-items-center flex-column m-1 p-1">    
-                    <span class="me-1 mb-2 text-muted"><span class="fw-semibold">Moves:</span></span>    
-                    <ul class="list-unstyled scroll-list mb-0 d-flex flex-wrap justify-content-center gap-2">
-                        @foreach ($pokemon['moves'] as $i => $move)    
-                        <li class="rounded-4 px-2 border bg-light">
-                            {{ ucfirst($move['move']['name']) }}    
-                        </li>        
-                        @endforeach    
-                    </ul>        
-                </div>    
-            </section>        
+                <section>
+                    <div class="d-flex justify-content-center flex-wrap align-items-center flex-column m-1 p-1">    
+                        <span class="me-1 mb-2 text-muted"><span class="fw-semibold">Moves:</span></span>    
+                        <ul class="list-unstyled scroll-list mb-0 d-flex flex-wrap justify-content-center gap-2">
+                            @foreach ($pokemon['moves'] as $i => $move)    
+                            <li class="rounded-4 px-2 border bg-light">
+                                {{ ucfirst($move['move']['name']) }}    
+                            </li>        
+                            @endforeach    
+                        </ul>        
+                    </div>    
+                </section>        
                 
-            <section class="mt-4 d-flex justify-content-center flex-wrap align-items-center">    
-                <span class="me-2 mt-1 text-muted"><span class="fw-semibold">Game Appearances:</span></span>    
-                @foreach ($pokemon['game_indices'] as $game_index)    
-                <span class="me-1 badge pokemon-color"    >
-                    {{ ucfirst($game_index['version']['name']) }}    
-                </span>    
-                @endforeach    
-            </section>    
-        </div>    
+                <section class="mt-4 d-flex justify-content-center flex-wrap align-items-center">    
+                    <span class="me-2 mt-1 text-muted"><span class="fw-semibold">Game Appearances:</span></span>    
+                    @foreach ($pokemon['game_indices'] as $game_index)    
+                    <span class="me-1 badge pokemon-color">
+                        {{ ucfirst($game_index['version']['name']) }}    
+                    </span>    
+                    @endforeach    
+                </section>    
+            </div>    
             
-        <div class="d-flex justify-content-center">    
-            <a class="m-2 btn w-100 d-flex align-items-center justify-content-center     pokemon-color-btn" href="{{ route('pokemon.index') }}">
-                Back to Pokédex    
-            </a>    
-        </div>    
+            <div class="d-flex justify-content-center">    
+                <a class="m-2 btn w-100 d-flex align-items-center justify-content-center pokemon-color-btn" href="{{ route('pokemon.index') }}">
+                    Back to Pokédex    
+                </a>    
+            </div>    
             
-    </div>    
+        </div>    
         
-</x-layout.main-layout>
+    </x-layout.main-layout>
