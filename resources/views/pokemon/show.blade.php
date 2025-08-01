@@ -3,24 +3,28 @@
     
     <div>
         <h1 class="mb-5 text-center fw-bold">
-            <div class="pokemon-title text-white px-3 py-2 rounded-3 d-flex justify-content-around align-items-center gap-3">
+            <div class="pokemon-title text-white px-3 py-2 rounded-3 d-flex align-items-center justify-content-center gap-3">
                 
-                @if ($previousPokemon)
-                <a href="{{ route('pokemon.show', $previousPokemon) }}" class="btn btn-outline-light rounded-circle direction-arrow" title="Pokémon precedente">
-                    &lt;
-                </a>
-                @endif
+                <div class="arrow-wrapper d-flex align-items-center justify-content-center">
+                    @if ($previousPokemon)
+                    <a href="{{ route('pokemon.show', $previousPokemon) }}" class="btn btn-outline-light rounded-circle direction-arrow" title="Pokémon precedente">
+                        &lt;
+                    </a>
+                    @endif
+                </div>
                 
-                <p class="mb-0">
+                <p class="mb-0 text-nowrap">
                     #{{ str_pad($pokemon['id'], 4, '0', STR_PAD_LEFT) }}
                     {{ ucfirst($pokemon['name']) }}
                 </p>
                 
-                @if ($nextPokemon)
-                <a href="{{ route('pokemon.show', $nextPokemon) }}" class="btn btn-outline-light rounded-circle direction-arrow" title="Pokémon successivo">
-                    &gt;
-                </a>
-                @endif
+                <div class="arrow-wrapper d-flex align-items-center justify-content-center">
+                    @if ($nextPokemon)
+                    <a href="{{ route('pokemon.show', $nextPokemon) }}" class="btn btn-outline-light rounded-circle direction-arrow" title="Pokémon successivo">
+                        &gt;
+                    </a>
+                    @endif
+                </div>
                 
             </div>
         </h1>
@@ -81,12 +85,15 @@
                 </span>
             </section>
             
-            <section class="mb-3">
-                <audio controls>
-                    <source src="{{ $pokemon['cries']['latest'] }}" type="audio/ogg" />
-                    Il tuo browser non supporta l'elemento audio.
-                </audio>
+            <section class="mb-3 d-flex justify-content-center">
+                <div class="audio-wrapper">
+                    <audio controls>
+                        <source src="{{ $pokemon['cries']['latest'] }}" type="audio/ogg" />
+                        Il tuo browser non supporta l'elemento audio.
+                    </audio>
+                </div>
             </section>
+            
             
             <section>
                 <div class="d-flex justify-content-center flex-wrap align-items-center flex-column m-1 p-1">
@@ -104,7 +111,7 @@
             <section class="mt-4 d-flex justify-content-center flex-wrap align-items-center">
                 <span class="me-2 mt-1 text-muted"><span class="fw-semibold">Game Appearances:</span></span>
                 @foreach ($pokemon['game_indices'] as $game_index)
-                <span class="me-1 badge pokemon-color">
+                <span class="badge pokemon-color me-1 mb-1">
                     {{ ucfirst($game_index['version']['name']) }}
                 </span>
                 @endforeach

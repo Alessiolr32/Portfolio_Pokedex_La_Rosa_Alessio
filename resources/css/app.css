@@ -202,3 +202,17 @@ footer {
     align-items: center;
     font-weight: bold;
 }
+
+.arrow-wrapper {
+    width: 60px;
+    min-width: 40px;
+}
+
+.audio-wrapper {
+    width: 100%;
+    max-width: 400px;
+}
+
+audio {
+    width: 100%;
+}
