@@ -2,7 +2,7 @@
   <div class="container text-center">
     <h5 class="fw-bold">Pokédex</h5>
     <div class="mb-2">
-      <a href="#" class="text-white text-decoration-none me-3">Homepage</a>
+      <a href="{{route('pokemon.index')}}" class="text-white text-decoration-none me-3">Homepage</a>
       <a href="#" class="text-white text-decoration-none me-3">Types</a>
       <a href="#" class="text-white text-decoration-none me-3">Generations</a>
     </div>
