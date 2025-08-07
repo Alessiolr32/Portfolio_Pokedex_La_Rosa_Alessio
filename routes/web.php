@@ -3,5 +3,7 @@
 use App\Http\Controllers\PokemonController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [PokemonController::class, 'index'])->name('pokemon.index');
-Route::get('/pokédex/{id}', [PokemonController::class, 'show'])->name('pokemon.show');
+Route::controller(PokemonController::class)->group(function () {
+    Route::get('/', 'index')->name('pokemon.index');
+    Route::get('/pokemon/{id}', 'show')->name('pokemon.show');
+});

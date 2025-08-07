@@ -1,38 +1,17 @@
 <x-layout.main-layout>
-    <x-slot:title>{{ ucfirst($pokemon['name']) }}</x-slot:title>
+    <x-slot:title>{{ ucwords($pokemon['name']) }}</x-slot:title>
     
-    <div>
-        <h1 class="mb-5 text-center fw-bold">
-            <div class="pokemon-title text-white px-3 py-2 rounded-3 d-flex align-items-center justify-content-center gap-3">
-                
-                <div class="arrow-wrapper d-flex align-items-center justify-content-center">
-                    @if ($previousPokemon)
-                    <a href="{{ route('pokemon.show', $previousPokemon) }}" class="btn btn-outline-light rounded-circle direction-arrow" title="Pokémon precedente">
-                        &lt;
-                    </a>
-                    @endif
-                </div>
-                
-                <p class="mb-0 text-nowrap">
-                    #{{ str_pad($pokemon['id'], 4, '0', STR_PAD_LEFT) }}
-                    {{ ucfirst($pokemon['name']) }}
-                </p>
-                
-                <div class="arrow-wrapper d-flex align-items-center justify-content-center">
-                    @if ($nextPokemon)
-                    <a href="{{ route('pokemon.show', $nextPokemon) }}" class="btn btn-outline-light rounded-circle direction-arrow" title="Pokémon successivo">
-                        &gt;
-                    </a>
-                    @endif
-                </div>
-                
-            </div>
-        </h1>
-    </div>
+    <section>
+        <livewire:pokemon.arrows 
+        :previous-pokemon="$previousPokemon" 
+        :next-pokemon="$nextPokemon" 
+        :pokemon="$pokemon"/>   
+    </section>
     
     <div class="card card-show-item shadow rounded-4 border-0 w-75 mx-auto">
         <section>
-            <img src="{{ $pokemon['sprites']['other']['official-artwork']['front_default'] }}" alt="{{ $pokemon['name'] }}" class="card-img-top rounded-top-4 pokemon-img-detail">
+            <img src="{{ $pokemon['sprites']['other']['official-artwork']['front_default'] }}" alt="{{ $pokemon['name'] }}" class="card-img-top rounded-top-4 pokemon-img-detail">            
+            <livewire:pokemon.pokemon-sprite :sprites="collect($pokemon['sprites'])->filter(fn($sp) => is_string($sp))->toArray()" />
         </section>
         
         <div class="card-body text-center">
@@ -40,89 +19,51 @@
                 <p class="mb-1 text-muted small">
                     #{{ str_pad($pokemon['id'], 4, '0', STR_PAD_LEFT) }}
                 </p>
-                <h5 class="card-title fw-bold">{{ ucfirst($pokemon['name']) }}</h5>
+                <h5 class="card-title fw-bold">{{ ucwords($pokemon['name']) }}</h5>
             </section>
             
-            <section class="mb-2">
-                <div class="mb-2">
-                    @foreach ($pokemon['types'] as $type)
-                    <span class="badge badge-{{ $type['type']['name'] }} me-1">
-                        {{ ucfirst($type['type']['name']) }}
-                    </span>
-                    @endforeach
+            <section>
+                <livewire:pokemon.pokemon-types :types="$pokemon['types']"/>               
+            </section>
+            
+            <section>
+                <livewire:pokemon.pokemon-description :pokemon="$pokemon" />
+            </section>
+            
+            <section>
+                <livewire:pokemon.pokemon-abilities :abilities="$pokemon['abilities']"/> 
+            </section>
+            
+            <section>
+                <livewire:pokemon.pokemon-stats :stats="$pokemon['stats']"/> 
+            </section>
+            
+            <section>
+                <div class="mb-3 d-flex justify-content-center">
+                    <div class="audio-wrapper">
+                        <audio controls>
+                            <source src="{{ $pokemon['cries']['latest'] }}" type="audio/ogg"/>
+                            Il tuo browser non supporta l'elemento audio.
+                        </audio>
+                    </div>
                 </div>
             </section>
             
             <section>
-                <p class="text-muted small mb-1">
-                    <span class="fw-semibold">Height: </span>{{ $pokemon['height'] / 10 }} m
-                </p>
-                <p class="text-muted small mb-1">
-                    <span class="fw-semibold">Weight: </span>{{ $pokemon['weight'] / 10 }} kg
-                </p>
-                <p class="text-muted small mb-1">
-                    <span class="fw-semibold">Base Experience: </span>{{ $pokemon['base_experience'] }}
-                </p>
+                <livewire:pokemon.pokemon-moves :moves="$pokemon['moves']"/>
             </section>
             
             <section>
-                <p class="text-muted small mb-1">
-                    <span class="fw-semibold">Abilities: </span>
-                    @foreach ($pokemon['abilities'] as $ability)
-                    {{ ucfirst($ability['ability']['name']) }}
-                    @endforeach
-                </p>
-            </section>
-            
-            <section class="d-flex justify-content-center flex-wrap align-items-center p-1 mb-4">
-                <span class="text-muted small">
-                    <span class="fw-semibold me-1">Base Stats:</span>
-                    @foreach ($pokemon['stats'] as $stat)
-                    <span class="me-1">
-                        {{ ucfirst($stat['stat']['name']) }}: {{ $stat['base_stat'] }}
-                    </span>
-                    @endforeach
-                </span>
-            </section>
-            
-            <section class="mb-3 d-flex justify-content-center">
-                <div class="audio-wrapper">
-                    <audio controls>
-                        <source src="{{ $pokemon['cries']['latest'] }}" type="audio/ogg" />
-                        Il tuo browser non supporta l'elemento audio.
-                    </audio>
-                </div>
-            </section>
-            
-            
-            <section>
-                <div class="d-flex justify-content-center flex-wrap align-items-center flex-column m-1 p-1">
-                    <span class="me-1 mb-2 text-muted"><span class="fw-semibold">Moves:</span></span>
-                    <ul class="list-unstyled scroll-list mb-0 d-flex flex-wrap justify-content-center gap-2">
-                        @foreach ($pokemon['moves'] as $move)
-                        <li class="rounded-4 px-2 border bg-light">
-                            {{ ucfirst($move['move']['name']) }}
-                        </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </section>
-            
-            <section class="mt-4 d-flex justify-content-center flex-wrap align-items-center">
-                <span class="me-2 mt-1 text-muted"><span class="fw-semibold">Game Appearances:</span></span>
-                @foreach ($pokemon['game_indices'] as $game_index)
-                <span class="badge pokemon-color me-1 mb-1">
-                    {{ ucfirst($game_index['version']['name']) }}
-                </span>
-                @endforeach
+                <livewire:pokemon.pokemon-appearances :game_indices="$pokemon['game_indices']" />
             </section>
         </div>
         
-        <div class="d-flex justify-content-center">
-            <a class="m-2 btn w-100 d-flex align-items-center justify-content-center pokemon-color-btn" href="{{ route('pokemon.index') }}">
-                Back to Pokédex
-            </a>
+        <div>
+            <div class="d-flex justify-content-center">
+                <a class="m-2 btn w-100 d-flex align-items-center justify-content-center pokemon-color-back" href="{{ route('pokemon.index') }}">
+                    Back to Pokédex
+                </a>
+            </div>
         </div>
-    </div>
-    
+    </div>   
 </x-layout.main-layout>

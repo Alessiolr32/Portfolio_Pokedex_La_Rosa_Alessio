@@ -15,9 +15,9 @@ body {
 }
 
 .pokemon-color {
-    background-color:#e01915;
+    background-color: #e01915;
     color: white;
-} 
+}
 
 .navbar-icon {
     width: 150px;
@@ -65,7 +65,7 @@ footer {
 }
 
 .pokemon-title {
-    background: linear-gradient(to bottom, #000000, #313131);
+    background: linear-gradient(to bottom, #000000, #363636);
     color: white;
     display: inline-block;
     width: 99.7%;
@@ -215,4 +215,29 @@ footer {
 
 audio {
     width: 100%;
+}
+
+.pokemon-show-btn {
+    background-color: #f2f2f2;
+    color: #585858d8;
+    border: 1px solid #d8d8d8d8;
+    border-radius: 11px;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.7rem;
+}
+
+.pokemon-show-btn:hover {
+    background-color: #e40d0a;
+    color: #ffffff;
+}
+
+.pokemon-color-back {
+    background-color: #db0d09;
+    color: white;
+    border-radius: 10px;
+}
+
+.pokemon-color-back:hover {
+    background-color: #ee0000 !important;
+    color: #ffffff;
 }
