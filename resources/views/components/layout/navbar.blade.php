@@ -52,9 +52,9 @@
                 </li>
             </ul>
             
-            <form class="d-flex" role="search">
-                <input class="form-control me-2 border-thick" type="search" placeholder="Search" aria-label="Search"/>
-                <button class="btn pokemon-color-btn border-thick fw-semibold" type="submit">Search</button>
+            <form class="d-flex" role="search" wire:submit.prevent>
+                <input wire:model="search" class="form-control me-2 border-thick" type="search" placeholder="Search" aria-label="Search"/>
+                <button class="btn pokemon-color-btn border-thick fw-semibold" type="submit" wire:submit.prevent>Search</button>
             </form>
         </div>
     </div>

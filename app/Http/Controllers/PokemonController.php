@@ -12,7 +12,6 @@ class PokemonController extends Controller
         $response = Http::get('https://pokeapi.co/api/v2/pokemon?limit=1025');
         $data = json_decode($response->body());
         $pokemonList = $data->results;
-
         return view('homepage', ['pokemons' => $pokemonList]);
     }
 
