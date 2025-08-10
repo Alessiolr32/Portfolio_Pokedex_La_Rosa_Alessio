@@ -10,25 +10,35 @@ class PokemonController extends Controller
     public function index()
     {
         $response = Http::get('https://pokeapi.co/api/v2/pokemon?limit=1025');
-        $data = json_decode($response->body());
-        $pokemonList = $data->results;
-
+        $dataList = json_decode($response->body());
+        $pokemonList = $dataList->results;
+        
         return view('homepage', ['pokemons' => $pokemonList]);
     }
-
+    
     public function show($id)
     {
         $pokemon = Http::get("https://pokeapi.co/api/v2/pokemon/{$id}")->json();
-
-        if (is_numeric($id)) {
-            $idNum = (int)$id;
-            $previousPokemon = $idNum > 1 ? $idNum - 1 : null;
-            $nextPokemon = $idNum < 1025 ? $idNum + 1 : null;
-        } else {
-            $previousPokemon = null;
-            $nextPokemon = null;
-        }
+        
+        $previousPokemon = (is_numeric($id) && $id > 1) ? $id - 1 : null;
+        $nextPokemon = (is_numeric($id) && $id < 1025) ? $id + 1 : null;
         
         return view('pokemon.show', compact('pokemon', 'previousPokemon', 'nextPokemon'));
+    }
+    
+    public function filter($type)
+    {
+        $response = Http::get("https://pokeapi.co/api/v2/type/{$type}");
+        $dataList = $response->json();
+        
+        $pokemons = collect($dataList['pokemon'])->map(function ($itemPokemon) 
+        {
+            return [
+                'id' => basename(rtrim($itemPokemon['pokemon']['url'], '/')),
+                'name' => $itemPokemon['pokemon']['name'],
+            ];
+        });
+        
+        return view('pokemon.filter', compact('pokemons', 'type'));
     }
 }

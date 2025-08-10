@@ -15,31 +15,11 @@
                     <a class="nav-link text-white navbar-text" aria-current="page" href="/">Pokédex
                     </a>
                 </li>
+                
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white navbar-text" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Types & Weaknesses
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Fire</a></li>
-                        <li><a class="dropdown-item" href="#">Water</a></li>
-                        <li><a class="dropdown-item" href="#">Grass</a></li>
-                        <li><a class="dropdown-item" href="#">Electric</a></li>
-                        <li><a class="dropdown-item" href="#">Psychic</a></li>
-                        <li><a class="dropdown-item" href="#">Normal</a></li>
-                        <li><a class="dropdown-item" href="#">Ice</a></li>
-                        <li><a class="dropdown-item" href="#">Fighting</a></li>
-                        <li><a class="dropdown-item" href="#">Poison</a></li>
-                        <li><a class="dropdown-item" href="#">Ground</a></li>
-                        <li><a class="dropdown-item" href="#">Flying</a></li>
-                        <li><a class="dropdown-item" href="#">Bug</a></li>
-                        <li><a class="dropdown-item" href="#">Rock</a></li>
-                        <li><a class="dropdown-item" href="#">Ghost</a></li>
-                        <li><a class="dropdown-item" href="#">Dragon</a></li>  
-                        <li><a class="dropdown-item" href="#">Dark</a></li>
-                        <li><a class="dropdown-item" href="#">Steel</a></li>
-                        <li><a class="dropdown-item" href="#">Fairy</a></li>                 
-                    </ul>    
+                    <livewire:pokemon.pokemon-filter />
                 </li>
+                
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white navbar-text" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Generations

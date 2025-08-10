@@ -68,10 +68,11 @@ footer {
     background: linear-gradient(to bottom, #000000, #363636);
     color: white;
     display: inline-block;
-    width: 99.7%;
+    width: 99.9%;
     text-align: center;
     font-size: 2.1rem;
     cursor: pointer;
+    margin: auto;
 }
 
 .card {
@@ -240,4 +241,14 @@ audio {
 .pokemon-color-back:hover {
     background-color: #ee0000 !important;
     color: #ffffff;
+}
+
+.pokemon-dropdown {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.pokemon-type-img {
+    height: 140px;
+    object-fit: contain;
 }
