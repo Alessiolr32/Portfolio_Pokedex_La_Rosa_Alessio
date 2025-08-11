@@ -43,11 +43,10 @@ body {
 }
 
 .pokemon-img-detail {
+    height: 250px;
     max-width: 250px;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
     display: block;
+    object-fit: contain;
 }
 
 .navbar {
@@ -252,3 +251,20 @@ audio {
     height: 140px;
     object-fit: contain;
 }
+
+.active-sprite {
+    background-color: #ffffff;
+    color: rgb(255, 255, 255);
+    border: 1px solid rgba(255, 255, 255, 0);
+}
+
+.sprite-preview {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.active-sprite {
+    box-shadow: 1px 1px 7px #0000007d;
+}
+

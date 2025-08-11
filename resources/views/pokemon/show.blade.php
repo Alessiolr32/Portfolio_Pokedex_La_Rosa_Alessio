@@ -10,7 +10,6 @@
     
     <div class="card card-show-item shadow rounded-4 border-0 w-75 mx-auto">
         <section>
-            <img src="{{ $pokemon['sprites']['other']['official-artwork']['front_default'] }}" alt="{{ $pokemon['name'] }}" class="card-img-top rounded-top-4 pokemon-img-detail mt-1"> 
             <livewire:pokemon.pokemon-sprite :sprites="$pokemon['sprites']"/>
         </section>
         

@@ -1,5 +1,14 @@
 <div>
-    <div class="text-center mb-2 mt-2">
-        <img src="{{ $currentSprite }}" alt="Sprite Pokémon" class="img-fluid pokemon-img-detail mb-2"/>       
+    <div class="text-center mb-5 mt-5">
+        <img src="{{ $currentSprite }}" alt="Sprite Pokémon" class="card-img-top pokemon-img-detail mx-auto"/>       
+    </div>
+    
+    <div class="d-flex justify-content-center gap-2 flex-wrap mb-1">
+        @foreach ($spriteTypes as $change => $preview)
+            <button wire:click="changeSprite('{{ $change }}')" 
+                class="badge pokemon-show-btn {{ $activeSprite === $change ? 'active-sprite' : '' }}">
+                <img src="{{ $preview }}" alt="{{ $change }}" class="sprite-preview">
+            </button>
+        @endforeach
     </div>
 </div>
