@@ -17,8 +17,10 @@ class PokemonSprite extends Component
     {
         $this->sprites = $sprites;
         
-        $this->defaultAnimatedSprite = $sprites['other']['official-artwork']['front_default']
+        $this->defaultAnimatedSprite = 
+        $sprites['other']['official-artwork']['front_default'] 
         ?? $sprites['front_default'];
+        
         
         $this->currentSprite = $this->defaultAnimatedSprite;
         
@@ -31,7 +33,7 @@ class PokemonSprite extends Component
             'shiny'       => $sprites['front_shiny'] ?? null,
             'back_shiny'  => $sprites['back_shiny'] ?? null,
         ];  
-              
+        
         $this->spriteTypes = array_filter($types);
     }
     

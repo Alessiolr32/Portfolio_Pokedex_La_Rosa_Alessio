@@ -49,17 +49,17 @@ body {
     object-fit: contain;
 }
 
-.navbar {
+.navbar, footer {
     background-image: url("/public/wp8813131.png");
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.navbar {   
     background-position: top;
 }
 
 footer {
-    background-image: url("/public/wp8813131.png");
-    background-size: cover;
-    background-repeat: no-repeat;
     background-position: bottom;
 }
 
@@ -89,15 +89,8 @@ footer {
     justify-content: center;
 }
 
-.scroll-list li {
-    flex: 0 0 auto;
-    background: #eaeef1;
-    padding: 0.3rem 0.6rem;
-    margin: 0;
-}
-
 .navbar-text {
-    font-size: 1.05rem;
+    font-size: 1.03rem;
 }
 
 .border-thick {
@@ -224,6 +217,7 @@ audio {
     border-radius: 11px;
     padding: 0.1rem 0.5rem;
     font-size: 0.7rem;
+    box-shadow: 1px 1px 2px #00000029;
 }
 
 .pokemon-show-btn:hover {
@@ -252,19 +246,38 @@ audio {
     object-fit: contain;
 }
 
-.active-sprite {
-    background-color: #ffffff;
-    color: rgb(255, 255, 255);
-    border: 1px solid rgba(255, 255, 255, 0);
-}
-
 .sprite-preview {
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
+    width: 35px;
+    height: 35px;
+    object-fit: contain;   
+}
+
+.pokemon-preview-btn {
+    background-color: #f2f2f2;
+    color: #585858d8;
+    border: 1px solid #d3d3d3d2;
+    border-radius: 20px;
+    padding: 0.1rem 0.3rem;
+    box-shadow: 1px 1px 1px #0000000e;
 }
 
 .active-sprite {
-    box-shadow: 1px 1px 7px #0000007d;
+    box-shadow: 1px 1px 4px #0000008a;
+    background-color: #ffffff !important;
+}
+
+.pokemon-moves-btn {
+    background-color: #f1f1f19b;
+    color: #707070;
+    border: 1px solid #dededed8;
+    border-radius: 10px;
+    padding: 0.3rem 0.7rem!important;
+    font-size: 0.7rem;
+    box-shadow: 1px 1px 3px #a9a9a94f;  
+}
+
+.pokemon-moves-btn:hover {
+    background-color: #ee0000 !important;
+    color: #ffffff;
 }
 
