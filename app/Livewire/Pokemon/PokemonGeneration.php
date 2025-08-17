@@ -7,20 +7,20 @@ use Illuminate\Support\Facades\Http;
 
 class PokemonGeneration extends Component
 {
-    public $types = [];
-    public $selectedType = '';
-    public $pokemonsTypes = [];
+    public $generations = [];
+    public $selectedGeneration = '';
+    public $pokemonsGenerations = [];
 
     public function mount()
     {
-        $response = Http::get('https://pokeapi.co/api/v2/type');
-        $this->types = collect($response->json()['results'])->pluck('name');
-        $this->pokemonsTypes = [];
+        $response = Http::get('https://pokeapi.co/api/v2/generation');
+        $this->generations = collect($response->json()['results'])->pluck('name');
+        $this->pokemonsGenerations = [];
     }
 
-    public function updatedSelectedType($value)
+    public function updatedSelectedGeneration($value)
     {
-        redirect()->route('pokemon.filter', ['type' => $value]);
+        redirect()->route('pokemon.generation', ['generation' => $value]);
     }
     
     public function render()

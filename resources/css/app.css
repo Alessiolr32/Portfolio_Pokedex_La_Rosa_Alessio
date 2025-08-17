@@ -262,7 +262,7 @@ audio {
 }
 
 .active-sprite {
-    box-shadow: 1px 1px 4px #0000008a;
+    box-shadow: 1px 1px 5px #0000008a;
     background-color: #ffffff !important;
 }
 

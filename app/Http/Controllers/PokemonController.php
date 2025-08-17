@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class PokemonController extends Controller
@@ -40,5 +38,21 @@ class PokemonController extends Controller
         });
         
         return view('pokemon.filter', compact('pokemons', 'type'));
+    }
+    
+    public function generation($generation)
+    {
+        $response = Http::get("https://pokeapi.co/api/v2/generation/{$generation}");
+        $dataList = $response->json();
+        
+        $pokemons = collect($dataList['pokemon_species'])->map(function ($itemPokemon) {
+            return 
+            [
+                'id' => basename(rtrim($itemPokemon['url'], '/')),
+                'name' => $itemPokemon['name'],
+            ];
+        })->sortBy('id'); 
+        
+        return view('pokemon.generation', compact('pokemons', 'generation'));
     }
 }

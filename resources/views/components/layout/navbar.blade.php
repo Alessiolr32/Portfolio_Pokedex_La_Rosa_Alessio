@@ -21,20 +21,7 @@
                 </li>
                 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-white navbar-text" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Generations
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">First Generation</a></li>
-                        <li><a class="dropdown-item" href="#">Second Generation</a></li>
-                        <li><a class="dropdown-item" href="#">Third Generation</a></li>
-                        <li><a class="dropdown-item" href="#">Fourth Generation</a></li>
-                        <li><a class="dropdown-item" href="#">Fifth Generation</a></li>
-                        <li><a class="dropdown-item" href="#">Sixth Generation</a></li>
-                        <li><a class="dropdown-item" href="#">Seventh Generation</a></li>
-                        <li><a class="dropdown-item" href="#">Eighth Generation</a></li>
-                        <li><a class="dropdown-item" href="#">Ninth Generation</a></li>
-                    </ul>
+                    <livewire:pokemon.pokemon-generation />
                 </li>
             </ul>
             
