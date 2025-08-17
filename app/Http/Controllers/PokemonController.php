@@ -35,24 +35,24 @@ class PokemonController extends Controller
                 'id' => basename(rtrim($itemPokemon['pokemon']['url'], '/')),
                 'name' => $itemPokemon['pokemon']['name'],
             ];
-        });
+        })->sortBy('id')->values()->toArray();
         
         return view('pokemon.filter', compact('pokemons', 'type'));
     }
-    
+
     public function generation($generation)
     {
         $response = Http::get("https://pokeapi.co/api/v2/generation/{$generation}");
         $dataList = $response->json();
-        
+
         $pokemons = collect($dataList['pokemon_species'])->map(function ($itemPokemon) {
             return 
             [
                 'id' => basename(rtrim($itemPokemon['url'], '/')),
                 'name' => $itemPokemon['name'],
             ];
-        })->sortBy('id'); 
-        
+        })->sortBy('id')->values()->toArray();
+
         return view('pokemon.generation', compact('pokemons', 'generation'));
     }
 }
