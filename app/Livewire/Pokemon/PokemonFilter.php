@@ -3,17 +3,16 @@
 namespace App\Livewire\Pokemon;
 
 use Livewire\Component;
-use Illuminate\Support\Facades\Http;
+use App\Services\PokemonService;
 
 class PokemonFilter extends Component
 {
     public $types = [];
     public $selectedType = '';
 
-    public function mount()
+    public function mount(PokemonService $pokemonService)
     {
-        $response = Http::get('https://pokeapi.co/api/v2/type');
-        $this->types = collect($response->json()['results'])->pluck('name');
+        $this->types = $pokemonService->getTypes();
     }
 
     public function updatedSelectedType($value)

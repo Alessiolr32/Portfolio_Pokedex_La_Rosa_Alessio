@@ -10,7 +10,7 @@
     
     <div class="card card-show-item shadow rounded-4 border-0 w-75 mx-auto">
         <section>
-            <livewire:pokemon.pokemon-sprite :sprites="$pokemon['sprites']"/>
+            <livewire:pokemon.pokemon-sprite :pokemon-id="$pokemon['id']"/>
         </section>
         
         <div class="card-body text-center">
@@ -64,6 +64,5 @@
                 </a>
             </div>
         </div>
-    </div> 
-      
+    </div>    
 </x-layout.main-layout>

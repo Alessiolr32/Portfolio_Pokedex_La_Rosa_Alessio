@@ -10,8 +10,7 @@
         </button>
         
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
-                
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">                
                 <li class="nav-item">
                     <a class="nav-link text-white navbar-text" aria-current="page" href="/">Pokédex</a>
                 </li>
@@ -25,7 +24,7 @@
                 </li>
             </ul>
             
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center justify-content-lg-end justify-content-center w-100">
                 <livewire:pokemon.pokemon-searched />   
             </div>
         </div>

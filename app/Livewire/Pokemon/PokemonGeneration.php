@@ -3,17 +3,16 @@
 namespace App\Livewire\Pokemon;
 
 use Livewire\Component;
-use Illuminate\Support\Facades\Http;
+use App\Services\PokemonService;
 
 class PokemonGeneration extends Component
 {
     public $generations = [];
     public $selectedGeneration = '';
 
-    public function mount()
+    public function mount(PokemonService $pokemonService)
     {
-        $response = Http::get('https://pokeapi.co/api/v2/generation');
-        $this->generations = collect($response->json()['results'])->pluck('name');
+        $this->generations = $pokemonService->getGenerations();
     }
 
     public function updatedSelectedGeneration($value)

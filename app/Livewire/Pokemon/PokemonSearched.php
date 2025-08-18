@@ -3,13 +3,13 @@
 namespace App\Livewire\Pokemon;
 
 use Livewire\Component;
-use Illuminate\Support\Facades\Http;
+use App\Services\PokemonService;
 
 class PokemonSearched extends Component
 {
     public $search = '';
 
-    public function filterPokemons()
+    public function filterPokemons(PokemonService $pokemonService)
     {
         $name = strtolower(trim($this->search));
 
@@ -19,10 +19,11 @@ class PokemonSearched extends Component
 
         $name = str_replace(' ', '-', $name);
 
-        $response = Http::get("https://pokeapi.co/api/v2/pokemon/{$name}");
-
-        if ($response->successful()) {
+        try {
+            $pokemonService->getByIdOrName($name);
             return redirect()->route('pokemon.show', ['id' => $name]);
+        } catch (\Exception $error) {
+            $this->addError('search', 'Pokémon non trovato');
         }
     }
 
