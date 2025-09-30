@@ -3,6 +3,7 @@
 ## 📌 Descrizione  
 Un Pokédex interattivo che consente di esplorare tutti i Pokémon attualmente esistenti, con dettagli aggiornati in tempo reale tramite una PokéAPI esterna. 
 
+
 ---
 
 ## 🚀 Funzionalità principali:
@@ -18,14 +19,15 @@ Un Pokédex interattivo che consente di esplorare tutti i Pokémon attualmente e
 5. **📑 Elenco completo dei Pokémon**  
 
 
+
 ---
 
 ## 🛠️ Tecnologie utilizzate:  
 
 - **Backend**: [Laravel](https://laravel.com/)  
-- **Frontend**: [Vite](https://vitejs.dev/), JavaScript, Blade, Bootstrap 
-- **Testing**: PHPUnit  
+- **Frontend**: [Vite](https://vitejs.dev/), JavaScript, Blade, Bootstrap   
 - **Api**: 🔗 PokéAPI come fonte dei dati ufficiali  
+
 
 ---
 
@@ -35,6 +37,7 @@ Un Pokédex interattivo che consente di esplorare tutti i Pokémon attualmente e
 - PHP >= 8.1  
 - Composer  
 - Node.js + npm  
+
 
 ### Setup  
 
@@ -63,7 +66,6 @@ php artisan serve
 
 # Avvio build frontend
 npm run dev
-
 
 ---
 
