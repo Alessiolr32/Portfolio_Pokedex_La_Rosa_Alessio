@@ -1,59 +1,74 @@
-📖 Pokédex Dinamico
+🚀 Funzionalità principali
+Ricerca rapida e intuitiva
 
-Un Pokédex interattivo che consente di esplorare tutti i Pokémon attualmente esistenti, con dettagli aggiornati in tempo reale tramite una PokéAPI esterna.
+Filtra Pokémon per nome o numero
 
+Risultati immediati con caricamento dinamico
 
-✨ Funzionalità principali:
+Interfaccia responsive
 
-🔍 Ricerca rapida per nome o numero del Pokémon
+Ottimizzata per desktop e mobile
 
-🎨 Interfaccia responsiva ottimizzata per desktop e mobile
+Navigazione fluida e design moderno
 
-📊 Dettagli dinamici su statistiche, abilità, tipi ed evoluzioni
+Dettagli completi sui Pokémon
 
-🌐 Aggiornamento in tempo reale grazie ai dati forniti dall’API
+Statistiche, abilità, tipi ed evoluzioni
 
-📑 Elenco completo dei Pokémon
+Visualizzazione dinamica dei dati
 
+Aggiornamento in tempo reale
 
-🛠️ Tecnologie utilizzate:
+Connessione diretta con PokéAPI
 
-⚡ Laravel come framework backend
+Informazioni sempre aggiornate
 
-⚡ Livewire per la gestione reattiva dei componenti
+Elenco completo dei Pokémon
 
-🎨 Bootstrap per uno stile moderno e responsive
+Catalogo consultabile con scroll infinito
 
-🔗 PokéAPI come fonte dei dati ufficiali
+Accesso rapido ai dettagli di ogni creatura
 
+🛠️ Tecnologie utilizzate
+Backend: Laravel
 
+Componenti reattivi: Livewire
 
-🚀 Installazione e utilizzo:
+Frontend: Bootstrap
 
-Clona la repository
+API: PokéAPI
 
-#bash
+⚙️ Installazione
+Requisiti
+PHP >= 8.1
 
-git clone...
+Composer
 
+Node.js + npm
+
+MySQL o MariaDB
+
+Setup
+bash
+# Clonare il repository
+git clone <repo-url>
+
+# Entrare nella cartella del progetto
 cd pokedex
 
-Installa le dipendenze PHP e JavaScript
-
-
-#bash
-
+# Installare dipendenze PHP
 composer install
 
+# Installare dipendenze JS
 npm install && npm run dev
 
-Configura il file .env con le tue impostazioni e database
+# Copiare il file di configurazione
+cp .env.example .env
 
-
-Avvia il server Laravel
-
-bash
-
+# Configurare database nel file .env
+# Avviare il server Laravel
 php artisan serve
+Accedi all'applicazione su http://localhost:8000 e inizia a scoprire i tuoi Pokémon preferiti! 💫
 
-Inizia ad esplorare i tuoi Pokémon preferiti su http://localhost:8000 💫
+📄 Licenza
+Questo progetto è rilasciato sotto licenza MIT.
