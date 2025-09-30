@@ -1,53 +1,71 @@
-📖 Pokédex Dinamico
+# Pokédex Pokémon
 
-Un Pokédex interattivo che consente di esplorare tutti i Pokémon attualmente esistenti, con dettagli aggiornati in tempo reale tramite una PokéAPI esterna.
+## 📌 Descrizione  
+Un Pokédex interattivo che consente di esplorare tutti i Pokémon attualmente esistenti, con dettagli aggiornati in tempo reale tramite una PokéAPI esterna. 
 
-✨ Funzionalità principali:
+---
 
-🔍 Ricerca rapida per nome o numero del Pokémon
+## 🚀 Funzionalità principali:
 
-🎨 Interfaccia responsiva ottimizzata per desktop e mobile
+1. **🔍 Ricerca rapida per nome o numero del Pokémon**
 
-📊 Dettagli dinamici su statistiche, abilità, tipi ed evoluzioni
+2. **🎨 Interfaccia responsiva ottimizzata per desktop e mobile**  
 
-🌐 Aggiornamento in tempo reale grazie ai dati forniti dall’API
+3. **📊 Dettagli dinamici su statistiche, abilità, tipi ed evoluzioni**  
 
-📑 Elenco completo dei Pokémon
+4. **🌐 Aggiornamento in tempo reale grazie ai dati forniti dall’API**  
 
-🛠️ Tecnologie utilizzate:
+5. **📑 Elenco completo dei Pokémon**  
 
-⚡ Laravel come framework backend
 
-⚡ Livewire per la gestione reattiva dei componenti
+---
 
-🎨 Bootstrap per uno stile moderno e responsive
+## 🛠️ Tecnologie utilizzate:  
 
-🔗 PokéAPI come fonte dei dati ufficiali
+- **Backend**: [Laravel](https://laravel.com/)  
+- **Frontend**: [Vite](https://vitejs.dev/), JavaScript, Blade, Bootstrap 
+- **Testing**: PHPUnit  
+- **Api**: 🔗 PokéAPI come fonte dei dati ufficiali  
 
-🚀 Installazione e utilizzo:
+---
 
-Clona la repository
+## ⚙️ Installazione  
 
-#bash
+### Requisiti  
+- PHP >= 8.1  
+- Composer  
+- Node.js + npm  
 
-git clone...
+### Setup  
 
-cd pokedex
+```bash
+# Clonare il repository
+git clone <repo-url>
 
-Installa le dipendenze PHP e JavaScript
+# Entrare nella cartella del progetto
+cd <repo name>
 
-#bash
-
+# Installare dipendenze PHP
 composer install
 
-npm install && npm run dev
+# Installare dipendenze JS
+npm install
 
-Configura il file .env con le tue impostazioni e database
+# Copiare il file di configurazione
+cp .env.example .env
 
-Avvia il server Laravel
 
-bash
+### Avvio in locale  
 
+```bash
+# Avvio server Laravel
 php artisan serve
 
-Inizia ad esplorare i tuoi Pokémon preferiti su http://localhost:8000 💫
+# Avvio build frontend
+npm run dev
+
+
+---
+
+## 📄 Licenza  
+Questo progetto è rilasciato sotto licenza MIT.  
